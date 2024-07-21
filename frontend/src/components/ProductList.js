@@ -1,8 +1,9 @@
-// src/ProductList.js
+// src/components/ProductList.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProductCard from './ProductCard';
 import { Link } from 'react-router-dom';
+import Layout from './Layout'; // Import the Layout component
 import './ProductList.css'; 
 
 const ProductList = () => {
@@ -30,21 +31,22 @@ const ProductList = () => {
     if (error) return <div>{error}</div>;
 
     return (
-        <div className="container mt-4">
-            <h1>Product List</h1>
-            <Link to="/add-product" className="btn btn-primary mb-3 button-spacing">Add New Product</Link>
-            <Link to="/add-stock" className="btn btn-primary mb-3 button-spacing">Add Stock</Link>
-            <Link to="/remove-stock" className="btn btn-primary mb-3 button-spacing">Remove Stock</Link>
-            <div className="row">
-                {products.map((product) => (
-                    <div className="col-md-4" key={product.id}>
-                        <ProductCard product={product} />
-                    </div>
-                ))}
+        <Layout>
+            <div className="container">
+                <h2 className="page-title">Product List</h2>
+                <div className="mb-3">
+                    <Link to="/add-product" className="btn btn-primary button-spacing">Add New Product</Link>
+                    <Link to="/manage-stock" className="btn btn-primary button-spacing">Manage Stock</Link>
+                </div>
+                <div className="row product-list">
+                    {products.map((product) => (
+                        <div className="col-md-4" key={product.id}>
+                            <ProductCard product={product} />
+                        </div>
+                    ))}
+                </div>
             </div>
-        </div>
-
-          
+        </Layout>
     );
 };
 
