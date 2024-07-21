@@ -1,0 +1,10 @@
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 16px;
+}
+.button-spacing {
+    margin-right: 10px; 
+}
+

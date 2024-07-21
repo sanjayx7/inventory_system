@@ -1,0 +1,12 @@
+/* src/AddProduct.css */
+.container {
+    max-width: 600px;
+}
+
+.btn {
+    margin-top: 10px;
+}
+
+.alert {
+    margin-top: 10px;
+}
